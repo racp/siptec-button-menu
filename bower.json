@@ -4,6 +4,7 @@
   "authors": ["Siptec, S de RL"],
   "license": "Apache-2.0",
   "ignore": "bower_components",
+  "version": "v1.0.2",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "vaadin-button": "vaadin/vaadin-button#^2.1.5",
