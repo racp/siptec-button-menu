@@ -1,0 +1,72 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../vaadin-icons/vaadin-icons.html">
+<link rel="import" href="../vaadin-button/vaadin-button.html">
+<link rel="import" href="../vaadin-ordered-layout/vaadin-vertical-layout.html">
+
+<dom-module id="siptec-button-menu">
+  <template>
+    <style>
+      :host(.acordion) {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+
+      }
+
+      :host(.acordion:hover) {
+        background-color: #ccc;
+      }
+
+      :host(.panel) {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+      }
+    </style>
+    <vaadin-vertical-layout style="width: 100%">
+      <vaadin-button id="[[id]]" class="acordion" on-click="_openOpfac" style="width: 100%" tabIndex="[[tab]]">
+        <iron-icon icon="vaadin:money" id="iconx" slot="prefix"></iron-icon>
+        <iron-icon icon="vaadin:angle-down" id="icony" slot="suffix"></iron-icon>
+        <div id="label">
+          <slot>[[label]]</slot>
+        </div>
+      </vaadin-button>
+      <div class="menu">
+        <slot></slot>
+      </div>
+  </template>
+
+  <script>
+    /**
+     * `siptec-button-menu`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class SiptecButtonMenu extends Polymer.Element {
+      static get is() { return 'siptec-button-menu'; }
+      _openOpfac() {
+
+        var panel = this;
+        if (panel.nextElementSibling.style.display === "none") {
+          panel.nextElementSibling.style.display = "inline-grid";
+        } else {
+          panel.nextElementSibling.style.display = "none";
+        }
+      }
+
+    }
+
+    window.customElements.define(SiptecButtonMenu.is, SiptecButtonMenu);
+  </script>
+</dom-module>
